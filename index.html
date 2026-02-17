@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internship Programs 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:white;
+  scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 6%;
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+nav h2{
+  font-size:20px;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:20px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+}
+
+.menu{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  padding:120px 15px 40px;
+}
+
+.hero h1{
+  font-size:48px;
+  line-height:1.2;
+}
+
+.hero p{
+  max-width:600px;
+  margin-top:15px;
+  opacity:.85;
+}
+
+.cta{
+  margin-top:25px;
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:#00ffcc;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* TRACKS */
+.cards{
+  display:flex;
+  justify-content:center;
+  gap:35px;
+  flex-wrap:wrap;
+  padding:80px 6%;
+}
+
+.card{
+  width:300px;
+  padding:28px;
+  background:rgba(255,255,255,.12);
+  border-radius:20px;
+  backdrop-filter:blur(15px);
+  text-align:center;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  background:rgba(255,255,255,.22);
+}
+
+.card button{
+  margin-top:18px;
+  padding:10px 25px;
+  border:none;
+  border-radius:25px;
+  background:#00ffcc;
+  font-weight:600;
+}
+
+/* SYLLABUS */
+.syllabus{
+  padding:70px 6%;
+  max-width:1000px;
+  margin:auto;
+}
+
+.syllabus h2{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+details{
+  background:rgba(255,255,255,.12);
+  padding:18px;
+  margin-bottom:14px;
+  border-radius:15px;
+}
+
+summary{
+  font-weight:600;
+  font-size:17px;
+}
+
+ul{
+  margin-top:12px;
+  line-height:1.7;
+  font-size:14px;
+}
+
+/* MENTOR */
+.mentor{
+  padding:70px 6%;
+  text-align:center;
+}
+
+.mentor-container{
+  display:flex;
+  justify-content:center;
+  gap:35px;
+  flex-wrap:wrap;
+  margin-top:35px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:25px;
+  opacity:.6;
+  font-size:14px;
+}
+
+/* MOBILE OPTIMIZATION */
+@media(max-width:768px){
+
+  nav ul{
+    display:none;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .cards{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .mentor-container{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .card{
+    width:90%;
+    max-width:340px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>🚀 Internship 2026</h2>
+  <div class="menu">☰</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#tracks">Tracks</a></li>
+    <li><a href="#syllabus">Syllabus</a></li>
+    <li><a href="#mentor">Mentors</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <h1>Build Real GenAI & Full Stack Skills</h1>
+  <p>Industry-ready internship program designed to build GPT-style models and deploy real applications.</p>
+  <button class="cta" onclick="goForm()">Apply Now</button>
+</section>
+
+<section class="cards" id="tracks">
+
+  <div class="card">
+    <h3>🤖 GenAI Internship</h3>
+    <p>Transformers, GPT, attention, build your own LLM mini project.</p>
+    <button onclick="goForm()">Register</button>
+  </div>
+
+  <div class="card">
+    <h3>💻 Full Stack Internship</h3>
+    <p>Frontend, Backend, Database & cloud deployment.</p>
+    <button onclick="goForm()">Register</button>
+  </div>
+
+</section>
+
+<section class="syllabus" id="syllabus">
+  <h2>📚 GenAI 30-Day Syllabus</h2>
+
+  <details>
+    <summary>Phase 1 — Math & ML Foundations</summary>
+    <ul>
+      <li>Language modeling basics</li>
+      <li>Linear algebra for embeddings</li>
+      <li>Probability & Bayes theorem</li>
+      <li>Cross entropy & optimization</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Phase 2 — Neural Networks for NLP</summary>
+    <ul>
+      <li>Word embeddings</li>
+      <li>RNN, LSTM, GRU</li>
+      <li>Attention & self-attention</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Phase 3 — Transformers & GPT</summary>
+    <ul>
+      <li>Transformer architecture</li>
+      <li>GPT-2 deep dive</li>
+      <li>Tokenization & sampling</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Phase 4 — Build GPT-2 Mini</summary>
+    <ul>
+      <li>Dataset preparation</li>
+      <li>Training & generation</li>
+    </ul>
+  </details>
+</section>
+
+<section class="mentor" id="mentor">
+  <h2>👨‍🏫 Program Mentors</h2>
+
+  <div class="mentor-container">
+
+    <div class="card">
+      <h3>🤖 GenAI Mentor</h3>
+      <p>Srinadh Vura</p>
+      <button onclick="window.open('https://www.linkedin.com/in/srinadh-vura')">LinkedIn</button>
+    </div>
+
+    <div class="card">
+      <h3>💻 Full Stack Mentor</h3>
+      <p>Shoukath Ali Shaik</p>
+      <button onclick="window.open('https://www.linkedin.com/in/shoukath-ali-shaik-9b2b43280/')">LinkedIn</button>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+© 2026 Internship Programs | Designed by You
+</footer>
+
+<script>
+function goForm(){
+  window.open("https://docs.google.com/forms/d/e/1FAIpQLSenJ23X6YXn9j5vGCIHd2PJU0OgJkSwKR0SkK82f8NGuK3Gsg/viewform","_blank");
+}
+</script>
+
+</body>
+</html>
