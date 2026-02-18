@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
 
 /* ========================= */
-/* SAFE FLOATING PARTICLES  */
+/* FLOATING PARTICLES       */
 /* ========================= */
 
 const particleContainer = document.getElementById("particles");
@@ -11,15 +11,18 @@ if(particleContainer){
     const particle = document.createElement("div");
     particle.classList.add("particle");
 
-    const size = Math.random()*5+3;
-    particle.style.width = size+"px";
-    particle.style.height = size+"px";
+    const size = Math.random()*5 + 3;
+    particle.style.width = size + "px";
+    particle.style.height = size + "px";
 
-    particle.style.left = Math.random()*100+"vw";
-    particle.style.animationDuration = (Math.random()*10+10)+"s";
+    particle.style.left = Math.random()*100 + "vw";
+    particle.style.animationDuration = (Math.random()*10 + 10) + "s";
 
     particleContainer.appendChild(particle);
   }
+
+  /* 🔥 IMPORTANT FIX — allow clicks through particles */
+  particleContainer.style.pointerEvents = "none";
 }
 
 
@@ -28,13 +31,8 @@ if(particleContainer){
 /* ========================= */
 
 function revealOnScroll(){
-  const reveals = document.querySelectorAll(".reveal");
-
-  reveals.forEach(el=>{
-    const windowHeight = window.innerHeight;
-    const elementTop = el.getBoundingClientRect().top;
-
-    if(elementTop < windowHeight - 100){
+  document.querySelectorAll(".reveal").forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
       el.classList.add("active");
     }
   });
@@ -45,114 +43,93 @@ revealOnScroll();
 
 
 /* ========================= */
-/* ANIMATED NUMBER COUNTER  */
+/* NUMBER COUNTER           */
 /* ========================= */
 
-const counters = document.querySelectorAll(".stat h2");
+document.querySelectorAll(".stat h2").forEach(counter=>{
 
-if(counters.length > 0){
-  counters.forEach(counter=>{
-    const originalText = counter.innerText;
-    const number = parseInt(originalText.replace(/\D/g,""));
-    const suffix = originalText.replace(/[0-9]/g,"");
+  const original = counter.innerText;
+  const number = parseInt(original.replace(/\D/g,""));
+  const suffix = original.replace(/[0-9]/g,"");
 
-    let count = 0;
+  let count = 0;
 
-    const updateCount = ()=>{
-      const increment = number / 100;
+  function update(){
+    const increment = number / 100;
+    if(count < number){
+      count += increment;
+      counter.innerText = Math.floor(count) + suffix;
+      requestAnimationFrame(update);
+    } else {
+      counter.innerText = number + suffix;
+    }
+  }
 
-      if(count < number){
-        count += increment;
-        counter.innerText = Math.floor(count) + suffix;
-        requestAnimationFrame(updateCount);
-      }else{
-        counter.innerText = number + suffix;
-      }
-    };
-
-    updateCount();
-  });
-}
+  update();
+});
 
 
 /* ========================= */
-/* HERO PARALLAX (SAFE)     */
+/* HERO PARALLAX            */
 /* ========================= */
 
 const hero = document.querySelector(".hero");
 
 if(hero){
-  document.addEventListener("mousemove", (e)=>{
-    const x = (window.innerWidth - e.pageX)/50;
-    const y = (window.innerHeight - e.pageY)/50;
-
+  document.addEventListener("mousemove", e=>{
     hero.style.transform =
-      `translateX(${x}px) translateY(${y}px)`;
+      `translate(${(window.innerWidth-e.pageX)/50}px,
+                 ${(window.innerHeight-e.pageY)/50}px)`;
   });
 }
 
 
 /* ========================= */
-/* ACCORDION (SYLLABUS)     */
+/* SYLLABUS ACCORDION       */
 /* ========================= */
 
 const phases = document.querySelectorAll(".phase");
 
-if(phases.length > 0){
+phases.forEach((phase,index)=>{
 
-  phases.forEach((phase, index) => {
+  const content = phase.querySelector(".details");
 
-    const content = phase.querySelector(".details");
+  if(index === 0){
+    phase.classList.add("active");
+    content.style.maxHeight = content.scrollHeight + "px";
+  }
 
-    // Open first item by default
-    if(index === 0){
+  phase.addEventListener("click", ()=>{
+
+    phases.forEach(p=>{
+      if(p !== phase){
+        p.classList.remove("active");
+        p.querySelector(".details").style.maxHeight = null;
+      }
+    });
+
+    if(phase.classList.contains("active")){
+      phase.classList.remove("active");
+      content.style.maxHeight = null;
+    } else {
       phase.classList.add("active");
       content.style.maxHeight = content.scrollHeight + "px";
     }
 
-    phase.addEventListener("click", function(){
-
-      // Close all others
-      phases.forEach(p=>{
-        if(p !== phase){
-          p.classList.remove("active");
-          p.querySelector(".details").style.maxHeight = null;
-        }
-      });
-
-      // Toggle current
-      if(phase.classList.contains("active")){
-        phase.classList.remove("active");
-        content.style.maxHeight = null;
-      } else {
-        phase.classList.add("active");
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-
-    });
-
   });
-
-}
-
 });
+
+
+/* ========================= */
+/* NAVBAR SCROLL EFFECT     */
+/* ========================= */
+
 const navbar = document.querySelector("nav");
 
-window.addEventListener("scroll", function(){
-  if(window.scrollY > 50){
-    navbar.style.background = "rgba(0,0,0,0.3)";
-  } else {
-    navbar.style.background = "transparent";
-  }
+window.addEventListener("scroll", ()=>{
+  navbar.style.background = window.scrollY > 50
+    ? "rgba(0,0,0,0.4)"
+    : "rgba(0,0,0,0.75)";
 });
-const hero = document.querySelector(".hero");
 
-if(hero){
-  document.addEventListener("mousemove", (e)=>{
-    const x = (window.innerWidth - e.pageX)/50;
-    const y = (window.innerHeight - e.pageY)/50;
-
-    hero.style.transform =
-      `translateX(${x}px) translateY(${y}px)`;
-  });
-}
+});
