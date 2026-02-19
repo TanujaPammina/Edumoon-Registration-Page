@@ -865,3 +865,192 @@ nav{
   backdrop-filter:blur(15px);
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:0;
+}
+.mentor-btn{
+position:relative;
+z-index:10;
+}
+/* ============================= */
+/* TRACKS PAGE FIX ONLY */
+/* ============================= */
+
+.tracks-container{
+  padding:180px 6% 120px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:80px;
+  flex-wrap:wrap;
+  min-height:80vh;
+}
+
+/* Center cards perfectly */
+.tracks-container .card{
+  margin:0;
+}
+
+/* Make responsive */
+@media(max-width:900px){
+  .tracks-container{
+    flex-direction:column;
+    gap:50px;
+  }
+}
+/* ============================= */
+/* TRACKS PAGE STYLING */
+/* ============================= */
+
+.tracks-hero{
+  padding:160px 8% 80px;
+  text-align:center;
+}
+
+.tracks-hero h1{
+  font-size:52px;
+  font-weight:700;
+  background:linear-gradient(90deg,#ffffff,#7d5fff,#00f2fe);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:15px;
+}
+
+.tracks-hero p{
+  opacity:.8;
+  font-size:18px;
+}
+
+/* container */
+.tracks-container{
+  display:flex;
+  justify-content:center;
+  gap:70px;
+  padding:80px 6% 140px;
+  flex-wrap:wrap;
+}
+
+/* track card */
+.track-card{
+  width:360px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(22px);
+  border-radius:28px;
+  padding:50px 38px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.08);
+  transition:.5s cubic-bezier(.77,0,.18,1);
+  position:relative;
+  overflow:hidden;
+}
+
+.track-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,#7d5fff33,#00f2fe22);
+  opacity:0;
+  transition:.4s;
+}
+
+.track-card:hover::before{
+  opacity:1;
+}
+
+.track-card:hover{
+  transform:translateY(-16px) scale(1.04);
+}
+
+/* icon */
+.track-icon{
+  font-size:48px;
+  margin-bottom:18px;
+}
+
+/* heading */
+.track-card h2{
+  font-size:24px;
+  margin-bottom:12px;
+  background:linear-gradient(90deg,#7d5fff,#00f2fe);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* text */
+.track-card p{
+  opacity:.85;
+  line-height:1.6;
+  margin-bottom:34px;
+}
+
+/* responsive */
+@media(max-width:800px){
+  .tracks-hero h1{font-size:36px;}
+  .track-card{width:90%;}
+}
+/* ============================= */
+/* CLEAN SYLLABUS LAYOUT FIX */
+/* ============================= */
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:170px 6% 120px;
+  display:block;
+}
+
+/* Title centered nicely */
+.title{
+  text-align:center;
+  margin-bottom:70px;
+  font-size:46px;
+}
+
+/* Accordion spacing */
+.phase{
+  margin-bottom:28px;
+  border-radius:22px;
+}
+
+/* Phase header */
+.phase h3{
+  font-size:20px;
+  padding:5px 0;
+}
+
+/* Inside content */
+.details{
+  padding-top:18px;
+}
+
+.details ul{
+  list-style:disc;
+  padding-left:26px;
+}
+
+.details li{
+  margin:12px 0;
+  line-height:1.6;
+  font-size:15px;
+}
+
+/* Glow focus when open */
+.phase.active{
+  transform:scale(1.01);
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .title{
+    font-size:34px;
+  }
+  .phase h3{
+    font-size:18px;
+  }
+}

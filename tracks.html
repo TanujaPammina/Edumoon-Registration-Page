@@ -7,11 +7,12 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
- <div id="particles"></div>
+
+<div id="particles"></div>
+
 <nav>
   <div class="brand">
     <img src="logo.png" alt="Edumoon Logo" class="logo">
@@ -20,48 +21,42 @@
 
   <ul>
     <li><a href="index.html">Home</a></li>
-    <li><a href="tracks.html">Tracks</a></li>
+    <li><a href="tracks.html" class="active">Tracks</a></li>
     <li><a href="syllabus.html">Syllabus</a></li>
     <li><a href="mentors.html">Mentors</a></li>
   </ul>
 </nav>
-<div class="container">
 
-<!-- GenAI -->
-<div class="card">
-<h2>🤖 GenAI Internship</h2>
-<p>LLMs, Transformers, GPT apps, AI deployment projects</p>
+<!-- HERO -->
+<section class="tracks-hero">
+  <h1>🚀 Choose Your Internship Track</h1>
+  <p>Hands-on AI training with real-world industry projects</p>
+</section>
 
-<div class="btn-group">
-<a class="btn apply" target="_blank"
-href="https://docs.google.com/forms/d/e/1FAIpQLSenJ23X6YXn9j5vGCIHd2PJU0OgJkSwKR0SkK82f8NGuK3Gsg/viewform">
-Apply Now
-</a>
+<!-- SINGLE TRACK -->
+<section class="tracks-container">
 
-<a class="btn syllabus" href="syllabus.html">
-View Syllabus
-</a>
-</div>
-</div>
+  <div class="track-card">
+    <div class="track-icon">🤖</div>
+    <h2>GenAI Internship</h2>
+    <p>
+      Learn LLMs, Transformers, GPT apps, model deployment and real AI systems.
+    </p>
 
-<!-- Full Stack -->
-<div class="card">
-<h2>💻 Full Stack Internship</h2>
-<p>Frontend, Backend, Database, Cloud deployment projects</p>
+    <div class="btn-group">
+      <a class="btn apply" target="_blank"
+         href="https://docs.google.com/forms/d/e/1FAIpQLSdSehjzFaDCNDTby23h93gHWSCF8uQ_TI9o5stR4pPe5BCshA/viewform">
+         Apply Now
+      </a>
 
-<div class="btn-group">
-<a class="btn apply" target="_blank"
-href="https://docs.google.com/forms/d/e/1FAIpQLSenJ23X6YXn9j5vGCIHd2PJU0OgJkSwKR0SkK82f8NGuK3Gsg/viewform">
-Apply Now
-</a>
+      <a class="btn syllabus" href="syllabus.html">
+        View Syllabus
+      </a>
+    </div>
+  </div>
 
-<a class="btn syllabus" href="syllabus.html">
-View Syllabus
-</a>
-</div>
-</div>
+</section>
 
-</div>
 <script src="script.js"></script>
 </body>
 </html>
